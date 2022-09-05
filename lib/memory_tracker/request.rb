@@ -1,4 +1,4 @@
-
+require 'sys/proctable'
 require 'memory_tracker/gc_stat'
 
 module MemoryTracker
@@ -26,11 +26,11 @@ module MemoryTracker
     private
 
     def self.rss
-      rss = ProcTable.ps(Process.pid).rss * 0.004096
+      rss = ProcTable.ps(pid: Process.pid).rss * 0.004096
     end
 
     def self.vsize
-      vsize = ProcTable.ps(Process.pid).vsize * 0.000001
+      vsize = ProcTable.ps(pid:Process.pid).vsize * 0.000001
     end
   end
 end
