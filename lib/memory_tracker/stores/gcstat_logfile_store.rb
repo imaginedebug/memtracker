@@ -37,8 +37,12 @@ module MemoryTracker
       end
 
       def write_request_log
-        logline = "#{@request.controller}##{@request.action},#{@request.end_gcstat.ordered_values(COLUMNS).join(',')}"
         @logger.info "#{Time.now.to_i},#{logline}"
+      end
+
+      def logline
+        logline = "#{@request.controller}##{@request.action},"
+        logline << @request.end_gcstat.ordered_values(COLUMNS).join(',')
       end
     end
   end

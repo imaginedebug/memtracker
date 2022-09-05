@@ -57,7 +57,7 @@ module MemoryTracker
       case RUBY_VERSION
       when /\A2\.2\./
         canonical = RUBY22_TO_CANONICAL_MAPPING.fetch(key, key)
-      when /\A2\.3\./
+      when /\A2\.6\./
         canonical = RUBY23_TO_CANONICAL_MAPPING.fetch(key, key)
       end
       canonical
@@ -68,7 +68,7 @@ module MemoryTracker
       case RUBY_VERSION
       when /\A2\.2\./
         current_key_name = CANONICAL_TO_RUBY22_MAPPING.fetch(key, key)
-      when /\A2\.3\./
+      when /\A2\.6\./
         current_key_name = CANONICAL_TO_RUBY23_MAPPING.fetch(key, key)
       end
       current_key_name
